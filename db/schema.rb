@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915064622) do
+ActiveRecord::Schema.define(version: 20170915234321) do
 
   create_table "carousels", force: :cascade do |t|
     t.string "image", null: false
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20170915064622) do
     t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "offset"
+    t.string "color"
     t.index ["restaurant_id"], name: "index_carousels_on_restaurant_id"
   end
 
@@ -34,8 +36,8 @@ ActiveRecord::Schema.define(version: 20170915064622) do
   end
 
   create_table "openings", force: :cascade do |t|
-    t.datetime "open_at", null: false
-    t.datetime "close_at", null: false
+    t.integer "open_at", null: false
+    t.integer "close_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "restaurant_id"
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170915064622) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "menu"
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
